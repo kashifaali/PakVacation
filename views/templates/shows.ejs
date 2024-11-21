@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
+        }
+
+        .details {
+            line-height: 1.8;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .details span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Spacing between elements */
+        }
+
+        .actions a, .actions button {
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .actions a:hover {
+            background-color: #0056b3;
+        }
+
+        .actions button:hover {
+            background-color: #0056b3;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Listing Details</h1>
+        <div class="details">
+            <p><span>Title:</span> <%= showdata.title %></p>
+            <p><span>Description:</span> <%= showdata.description %></p>
+            <p><span>Price:</span> $<%= showdata.price %></p>
+            <p><span>Location:</span> <%= showdata.location %></p>
+            <p><span>Country:</span> <%= showdata.country %></p>
+
+            <div>
+                <span><strong>Image:</strong></span>
+                <img src="<%= showdata.image.url %>" alt="Listing Image">
+            </div>
+        </div>
+        <div class="actions">
+            <a href="/update/<%= showdata._id %>">Edit</a>
+            <form method="post" action="/delete/<%= showdata.id %>?_method=DELETE" style="margin: 0;">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

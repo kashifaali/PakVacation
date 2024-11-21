@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Listing</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 500px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        form div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .cancel-button {
+            margin-top: 10px;
+            background-color: #6c757d;
+        }
+
+        .cancel-button:hover {
+            background-color: #5a6268;
+        }
+
+        .cancel-link {
+            text-decoration: none;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/update/<%= updatedata._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+        <h1>Update Listing</h1>
+        <!-- Title Field -->
+        <div>
+            <label for="title">Title:</label>
+            <input 
+                type="text" 
+                id="title" 
+                name="title" 
+                value="<%= updatedata.title %>" 
+                required>
+        </div>
+
+        <!-- Description Field -->
+        <div>
+            <label for="description">Description:</label>
+            <textarea 
+                id="description" 
+                name="description" 
+                rows="4" 
+                required><%= updatedata.description %></textarea>
+        </div>
+
+        <!-- Price Field -->
+        <div>
+            <label for="price">Price:</label>
+            <input 
+                type="number" 
+                id="price" 
+                name="price" 
+                value="<%= updatedata.price %>" 
+                step="0.01" 
+                required>
+        </div>
+
+        <!-- Location Field -->
+        <div>
+            <label for="location">Location:</label>
+            <input 
+                type="text" 
+                id="location" 
+                name="location" 
+                value="<%= updatedata.location %>" 
+                required>
+        </div>
+
+        <!-- Country Field -->
+        <div>
+            <label for="country">Country:</label>
+            <input 
+                type="text" 
+                id="country" 
+                name="country" 
+                value="<%= updatedata.country %>" 
+                required>
+        </div>
+
+        <!-- Image Field -->
+        <div>
+            <label for="image">Image:</label>
+            <input 
+                type="file" 
+                id="image" 
+                name="image">
+        </div>
+
+        <!-- Image Preview (If there's an existing image) -->
+        <% if (updatedata.image && updatedata.image.url) { %>
+            <div>
+                <p><strong>Current Image:</strong></p>
+                <img src="<%= updatedata.image.url %>" alt="Current Listing Image" class="image-preview">
+            </div>
+        <% } %>
+
+        <!-- Submit Button -->
+        <div>
+            <button type="submit">Update Listing</button>
+        </div>
+
+    </form>
+</body>
+</html>

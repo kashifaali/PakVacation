@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title>Index</title>
+</head>
+<body>
+    <h1>This is index file</h1>
+    <form action="/addnew" method="get">
+        <button class="third">add New</button>
+    </form>
+    <% for(data of data) {%>
+        <div class="container">
+            <div class="div1">
+                <a href="/shows/<%= data.id %>"><%= data.title %></a><br>
+            </div>
+        </div>
+           
+
+        
+        
+        
+        <% } %>
+</body>
+</html>
