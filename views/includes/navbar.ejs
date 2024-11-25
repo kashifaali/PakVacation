@@ -1,0 +1,86 @@
+<nav class="bg-blue-900 md:sticky top-0 z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <!-- Logo -->
+        <a href="#" class="text-white text-lg font-semibold">
+          PakVacation
+        </a>
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-10 ml-10">
+          <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+          <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+          <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
+          <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+        </div>
+      </div>
+      <!-- Search Bar -->
+      <div class="hidden md:flex items-center space-x-4">
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          class="bg-gray-100 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-2 px-4"
+        />
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg">
+          Search
+        </button>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div id="bars" class="flex md:hidden">
+        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+      <!-- Cross Icon -->
+      <div id="cross" class="flex hidden">
+        <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-2 pt-2 pb-3 space-y-1">
+    <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+    <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+    <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+    <a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+    <!-- Responsive Search Bar -->
+    <div class="flex items-center space-x-2">
+      <input 
+        type="text" 
+        placeholder="Search..." 
+        class="bg-gray-100 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg py-2 px-4 w-full"
+      />
+      <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg">
+        Search
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  let btn = document.querySelector('#mobile-menu-btn');
+  let menu = document.querySelector('#mobile-menu');
+  let cross = document.querySelector('#cross');
+  let bars = document.querySelector('#bars');
+
+  // Show menu and cross icon
+  bars.addEventListener('click', () => {
+    menu.style.display = 'block'; // Show the menu
+    bars.classList.add('hidden'); // Hide hamburger icon
+    cross.classList.remove('hidden'); // Show cross icon
+  });
+
+  // Hide menu and show hamburger icon
+  cross.addEventListener('click', () => {
+    menu.style.display = 'none'; // Hide the menu
+    cross.classList.add('hidden'); // Hide cross icon
+    bars.classList.remove('hidden'); // Show hamburger icon
+  });
+</script>

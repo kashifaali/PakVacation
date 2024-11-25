@@ -4,12 +4,16 @@ let model = require('./model/listing.js');
 let initdata = require('./init/data.js');
 let app = express();
 let path = require('path');
+let ejsmate = require('ejs-mate');
+
+
 app.listen(3000);
 app.set('views',path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 let methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+app.engine("ejs", ejsmate);
 //set database
 const connection = mongoose.connect('mongodb://127.0.0.1:27017/PakVacation');
 connection.then((result) => {

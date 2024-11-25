@@ -1,85 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New</title>
-    <style>
-        /* General Body Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f9;
-        }
+<% layout('/layout/boilerplate.ejs') %>
 
-        /* Form Container */
-        form {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-           
-        }
-
-        /* Input Fields */
-        input, textarea {
-           
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            font-family: inherit;
-        }
-
-        /* Placeholder for Textarea */
-        textarea {
-            resize: none;
-            height: 80px;
-        }
-
-        /* Submit Button */
-        button {
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Form Title */
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 20px;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    <form action="/listening" method="post">
-        <h1>Add New Listing</h1>
-        <input type="text" name="title" placeholder="Enter your title">
-        <textarea name="description" placeholder="Enter your description"></textarea>
-        <input type="number" name="price" placeholder="Enter your price">
-        <input type="text" name="location" placeholder="Enter your location">
-        <input type="text" name="country" placeholder="Enter your country">
-        <button type="submit">Submit</button>
+<body class=" bg-gray-100">
+    <form action="/listening" method="post" class="bg-white p-6 rounded-lg shadow-lg w-80 flex flex-col">
+        <h1 class="text-center text-lg font-bold text-gray-700 mb-5">Add New Listing</h1>
+        <input 
+            type="text" 
+            name="title" 
+            placeholder="Enter your title" 
+            class="mb-4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+        <textarea 
+            name="description" 
+            placeholder="Enter your description" 
+            class="mb-4 p-2 border border-gray-300 rounded resize-none h-20 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        ></textarea>
+        <input 
+            type="number" 
+            name="price" 
+            placeholder="Enter your price" 
+            class="mb-4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+        <input 
+            type="text" 
+            name="location" 
+            placeholder="Enter your location" 
+            class="mb-4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+        <input 
+            type="text" 
+            name="country" 
+            placeholder="Enter your country" 
+            class="mb-4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+        <button 
+            type="submit" 
+            class="py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 transition"
+        >
+            Submit
+        </button>
     </form>
 </body>
-</html>
+
